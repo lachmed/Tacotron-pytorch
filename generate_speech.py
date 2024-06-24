@@ -1,5 +1,11 @@
 import argparse
 import yaml
+
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+
 import torch
 import numpy as np
 from src.module import Tacotron
@@ -7,7 +13,7 @@ from src.symbols import txt2seq
 from src.utils import AudioProcessor
 
 def generate_speech(args):
-    config = yaml.load(open(args.config, 'r'))
+    config = yaml.load(open(args.config, 'r'), loader=Loader)
     model = load_ckpt(config, args.checkpoint_path)
     seq = np.asarray(txt2seq(args.text))
     seq = torch.from_numpy(seq).unsqueeze(0)
