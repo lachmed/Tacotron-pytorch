@@ -1,9 +1,9 @@
-librosa=0.8.0         # Process audio
+librosa==0.8.0         # Process audio
 matplotlib      # Plot spectrogram and attention
 numpy           # Fundamental package for scientific computing
 scipy           # Use signal.lfilter
 #yaml            # Config parser
-soundfile=0.10.3      # Save audio
+soundfile==0.10.3      # Save audio
 tensorboardX    # Tensorboard for pytorch
 tqdm            # Verbosity
 torch           # Deep learning platform
